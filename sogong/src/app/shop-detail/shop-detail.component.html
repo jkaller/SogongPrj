@@ -1,0 +1,8 @@
+<div *ngIf="shop">
+  <h2>{{ shop.name }} Details</h2>
+  <div><span>name: </span>{{shop.name}}</div>
+  <div>
+    <span>opening hours: </span> {{shop.opentime}}시 ~ {{shop.closetime}}시
+  </div>
+  <button (click)="goBack()">go back</button>
+</div>
