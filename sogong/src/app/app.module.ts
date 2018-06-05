@@ -1,14 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }    from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { ShopDetailComponent } from './shop-detail/shop-detail.component';
 import { CategoryComponent } from './category/category.component';
 import { ShopListComponent } from './shop-list/shop-list.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { GpsComponent } from './gps/gps.component';
 
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -16,12 +17,13 @@ import { GpsComponent } from './gps/gps.component';
     ShopDetailComponent,
     CategoryComponent,
     ShopListComponent,
-    GpsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

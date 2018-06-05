@@ -1,8 +1,13 @@
 <div *ngIf="shop">
   <h2>{{ shop.name }} Details</h2>
-  <div><span>name: </span>{{shop.name}}</div>
-  <div>
-    <span>opening hours: </span> {{shop.opentime}}시 ~ {{shop.closetime}}시
-  </div>
-  <button (click)="goBack()">go back</button>
+
+  <mat-card>
+    <mat-card-title>{{shop.name}}</mat-card-title>
+    <img mat-card-image>
+    <mat-card-content>
+        <span>opening hours: </span> {{shop.opentime}}시 ~ {{shop.closetime}}시
+    </mat-card-content>
+  </mat-card>
+  
+  <button mat-button (click)="goBack()">go back</button>
 </div>

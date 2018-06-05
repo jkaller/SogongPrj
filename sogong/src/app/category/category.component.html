@@ -1,9 +1,17 @@
-<h3>Categories</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let category of categories" class="col-1-4"
-      routerLink="/list/{{category}}">
-    <div class="module hero">
-      <h4>{{category}}</h4>
-    </div>
-  </a>
+<h2>Categories</h2>
+<div class="location">
+  <form>
+    <mat-form-field>
+      <input #newLocation matInput placeholder="insert new location" value="{{location}}">
+    </mat-form-field>
+    <button mat-button (click) = "changeLocation(newLocation.value)">Change</button>
+  </form>
+</div>
+
+<div>
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let category of categories">
+        <a routerLink="/list/{{category}}">{{category}}</a>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

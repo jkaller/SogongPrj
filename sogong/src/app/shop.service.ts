@@ -6,13 +6,14 @@ import { Observable, of } from 'rxjs';
 import { Shop } from './shop';
 import { SHOPS } from './database/mock-shops';
 import { Categories } from './database/mock-category';
-import { GpsComponent } from './gps/gps.component';
-
+import { DateAdapter } from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
+
+  location: string;
 
   constructor() { }
 
@@ -27,17 +28,26 @@ export class ShopService {
   getCategories(): string[]{
     return Categories;
   }
+  
   //getCategory
   getShopsByCategory(category: string): Observable<Shop[]>{
-    return of(SHOPS.filter(shop => shop.category === category));
+    return of(SHOPS.filter(shop => (shop.category === category && shop.location === this.location)));
   }
 
-  getUserLocation(){
-    //gps를 이용해 user의 location 설정.
-    //this.user.location = Gps.getLocation();
+  setGpsLocation(){
+    this.location = '남송리';
+  }
+
+  getUserLocation(): string{
+    return this.location;
+  }
+
+  changeLocation(newlocation: string){
+    this.location = newlocation;
   }
 
   getCurrentTime(): number{
-    return 9;
+    var d = new Date();
+    return d.getHours();
   }
 }

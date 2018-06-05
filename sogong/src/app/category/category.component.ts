@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Input } from '@angular/core';
 import { ShopService } from '../shop.service';
 
 @Component({
@@ -8,17 +7,27 @@ import { ShopService } from '../shop.service';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-
   categories: string[] = [];
+  location: string;
 
-  constructor(private shopService: ShopService) { }
+  constructor(
+    private shopService: ShopService,
+  ) { }
 
   ngOnInit() {
     this.getCategories();
+    this.getUserLocation();
   }
 
   getCategories(): void{
     this.categories = this.shopService.getCategories();
   }
 
+  getUserLocation(){
+    this.location = this.shopService.getUserLocation();
+  }
+
+  changeLocation(newlocation :string){
+    this.shopService.changeLocation(newlocation);
+  }
 }
